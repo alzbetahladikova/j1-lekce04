@@ -43,7 +43,8 @@ public class HlavniProgram {
 
     public void chytMys() {
 
-        while (jerry.isAlive()) {
+        while (jerry.isAlive()  ) {
+
             int jerryX = jerry.getX();
             int tomX = tom.getX();
             int jerryY = jerry.getY();
@@ -52,6 +53,7 @@ public class HlavniProgram {
             int opakX = tomX - jerryX;
             int vertikalniRozdil = jerryY - tomY;
             int opakY = tomY - jerryY;
+
 
             if (horizontalniRozdil > 0) {
                 jdiZaJerrymVpravo(horizontalniRozdil);
