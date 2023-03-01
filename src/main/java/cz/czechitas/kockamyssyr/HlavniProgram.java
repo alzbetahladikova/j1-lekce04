@@ -53,10 +53,7 @@ public class HlavniProgram {
     int opakX;
     int vertikalniRozdil;
     int opakY;
-    int jitrniceX;
-    int syrX;
-    int jitrniceY;
-    int syrY;
+
 
     public void chytMys() {
 
@@ -92,7 +89,7 @@ public class HlavniProgram {
         vertikalniRozdil = jerry.getY() - tom.getY();
         opakX = tom.getX() - jerry.getX();
         opakY = tom.getY() - jerry.getY();
-          }
+    }
 
 
     private void jdiZaJerrymVzuru(int opakY) {
