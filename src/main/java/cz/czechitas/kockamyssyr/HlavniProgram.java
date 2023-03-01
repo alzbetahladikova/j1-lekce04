@@ -56,10 +56,49 @@ public class HlavniProgram {
 
     public void chytMys() {
         while (jerry.isAlive() && (jitrnice.isAlive() || syr.isAlive())) {
+
+           /* if (!tom.isPossibleToMoveForward()) {
+                vyhniSePrekazce();
+            }
+            */
             jdiZaJerrymPoOseX();
             jdiZaJerrymPoOseY();
+
+
+        }
+
+
+    }
+
+
+    private void vyhniSePrekazce() {
+        if (tom.getOrientation() == PlayerOrientation.DOWN) {
+            vyhniSeZleva();
+        } else if (tom.getOrientation() == PlayerOrientation.LEFT) {
+            vyhniSeZprava();
+        } else if (tom.getOrientation() == PlayerOrientation.RIGHT) {
+            vyhniSeZleva();
+        } else {
+            vyhniSeZprava();
         }
     }
+
+
+    private void vyhniSeZleva() {
+        tom.turnLeft();
+        tom.moveForward(75);
+        tom.turnRight();
+
+    }
+
+    private void vyhniSeZprava() {
+        tom.turnRight();
+        tom.moveForward(75);
+        tom.turnLeft();
+
+
+    }
+
 
     private void jdiZaJerrymPoOseY() {
         prepocitejPozice();
