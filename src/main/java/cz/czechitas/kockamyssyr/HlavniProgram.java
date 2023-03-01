@@ -41,6 +41,7 @@ public class HlavniProgram {
         jerry.setBrain(new KeyboardBrain());
 
         syr = vytvorSyr();
+
         jitrnice = vytvorJitrnici();
 
 
@@ -56,32 +57,28 @@ public class HlavniProgram {
 
 
     public void chytMys() {
-
         while (jerry.isAlive() && (jitrnice.isAlive() || syr.isAlive())) {
-
-            prepocitejPozice();
-
-            if (horizontalniRozdil > 0) {
-                jdiZaJerrymVpravo(horizontalniRozdil);
-            } else if (horizontalniRozdil < 0) {
-                jdiZaJerrymDoleva(opakX);
-            } else {
-                return;
-            }
-            prepocitejPozice();
-
-            if (vertikalniRozdil > 0) {
-                jdiZaJerrymDolu(vertikalniRozdil);
-            } else if (vertikalniRozdil < 0) {
-                jdiZaJerrymVzuru(opakY);
-            } else {
-                return;
-            }
-
-
+            jdiZaJerrymPoOseX();
+            jdiZaJerrymPoOseY();
         }
+    }
 
+    private void jdiZaJerrymPoOseY() {
+        prepocitejPozice();
+        if (vertikalniRozdil > 0) {
+            jdiZaJerrymDolu(vertikalniRozdil);
+        } else if (vertikalniRozdil < 0) {
+            jdiZaJerrymVzuru(opakY);
+        }
+    }
 
+    private void jdiZaJerrymPoOseX() {
+        prepocitejPozice();
+        if (horizontalniRozdil > 0) {
+            jdiZaJerrymVpravo(horizontalniRozdil);
+        } else if (horizontalniRozdil < 0) {
+            jdiZaJerrymDoleva(opakX);
+        }
     }
 
     private void prepocitejPozice() {
