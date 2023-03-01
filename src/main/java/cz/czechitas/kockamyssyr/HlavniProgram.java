@@ -17,6 +17,9 @@ public class HlavniProgram {
 
     private Cat tom;
     private Mouse jerry;
+    private Cheese syr;
+    private Meat jitrnice;
+
 
     /**
      * Spouštěcí metoda celé aplikace.
@@ -37,22 +40,27 @@ public class HlavniProgram {
         jerry = vytvorMys();
         jerry.setBrain(new KeyboardBrain());
 
+        syr = vytvorSyr();
+        jitrnice = vytvorJitrnici();
 
 
         vytvorVeci(4);
         chytMys();
     }
-    int jerryX;
-    int tomX;
-    int jerryY;
-    int tomY;
+
+
     int horizontalniRozdil;
     int opakX;
     int vertikalniRozdil;
     int opakY;
+    int jitrniceX;
+    int syrX;
+    int jitrniceY;
+    int syrY;
+
     public void chytMys() {
 
-        while (jerry.isAlive() )  {
+        while (jerry.isAlive() && (jitrnice.isAlive() || syr.isAlive())) {
 
             prepocitejPozice();
 
@@ -70,7 +78,7 @@ public class HlavniProgram {
             } else if (vertikalniRozdil < 0) {
                 jdiZaJerrymVzuru(opakY);
             } else {
-               return;
+                return;
             }
 
 
@@ -80,15 +88,11 @@ public class HlavniProgram {
     }
 
     private void prepocitejPozice() {
-        jerryX = jerry.getX();
-        tomX = tom.getX();
-        jerryY = jerry.getY();
-        tomY = tom.getY();
-        horizontalniRozdil = jerryX - tomX;
-        opakX = tomX - jerryX;
-        vertikalniRozdil = jerryY - tomY;
-        opakY = tomY - jerryY;
-    }
+        horizontalniRozdil = jerry.getX() - tom.getX();
+        vertikalniRozdil = jerry.getY() - tom.getY();
+        opakX = tom.getX() - jerry.getX();
+        opakY = tom.getY() - jerry.getY();
+          }
 
 
     private void jdiZaJerrymVzuru(int opakY) {
@@ -153,8 +157,8 @@ public class HlavniProgram {
         for (int i = 0; i < pocetStromu; i++) {
             vytvorStrom();
         }
-        vytvorSyr();
-        vytvorJitrnici();
+        //vytvorSyr();
+        // vytvorJitrnici();
     }
 
     public Tree vytvorStrom() {
