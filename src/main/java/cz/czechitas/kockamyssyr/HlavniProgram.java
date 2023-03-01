@@ -44,11 +44,9 @@ public class HlavniProgram {
 
         jitrnice = vytvorJitrnici();
 
-
         vytvorVeci(4);
         chytMys();
     }
-
 
     int horizontalniRozdil;
     int opakX;
