@@ -37,23 +37,24 @@ public class HlavniProgram {
         jerry = vytvorMys();
         jerry.setBrain(new KeyboardBrain());
 
+
+
         vytvorVeci(4);
         chytMys();
     }
-
+    int jerryX;
+    int tomX;
+    int jerryY;
+    int tomY;
+    int horizontalniRozdil;
+    int opakX;
+    int vertikalniRozdil;
+    int opakY;
     public void chytMys() {
 
-        while (jerry.isAlive()  ) {
+        while (jerry.isAlive() )  {
 
-            int jerryX = jerry.getX();
-            int tomX = tom.getX();
-            int jerryY = jerry.getY();
-            int tomY = tom.getY();
-            int horizontalniRozdil = jerryX - tomX;
-            int opakX = tomX - jerryX;
-            int vertikalniRozdil = jerryY - tomY;
-            int opakY = tomY - jerryY;
-
+            prepocitejPozice();
 
             if (horizontalniRozdil > 0) {
                 jdiZaJerrymVpravo(horizontalniRozdil);
@@ -62,6 +63,7 @@ public class HlavniProgram {
             } else {
                 return;
             }
+            prepocitejPozice();
 
             if (vertikalniRozdil > 0) {
                 jdiZaJerrymDolu(vertikalniRozdil);
@@ -76,6 +78,18 @@ public class HlavniProgram {
 
 
     }
+
+    private void prepocitejPozice() {
+        jerryX = jerry.getX();
+        tomX = tom.getX();
+        jerryY = jerry.getY();
+        tomY = tom.getY();
+        horizontalniRozdil = jerryX - tomX;
+        opakX = tomX - jerryX;
+        vertikalniRozdil = jerryY - tomY;
+        opakY = tomY - jerryY;
+    }
+
 
     private void jdiZaJerrymVzuru(int opakY) {
         if (tom.getOrientation() == PlayerOrientation.DOWN) {
@@ -137,7 +151,7 @@ public class HlavniProgram {
 
     public void vytvorVeci(int pocetStromu) {
         for (int i = 0; i < pocetStromu; i++) {
-            //vytvorStrom();
+            vytvorStrom();
         }
         vytvorSyr();
         vytvorJitrnici();
