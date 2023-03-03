@@ -56,18 +56,28 @@ public class HlavniProgram {
 
     public void chytMys() {
         while (jerry.isAlive() && (jitrnice.isAlive() || syr.isAlive())) {
-
-           /* if (!tom.isPossibleToMoveForward()) {
-                vyhniSePrekazce();
-            }
-            */
+            vyhniSeOkraji();
+            objediPrekazku();
             jdiZaJerrymPoOseX();
             jdiZaJerrymPoOseY();
-
-
         }
+    }
 
+    private void objediPrekazku() {
+        if (!(tom.isPossibleToMoveForward())) {
+            vyhniSePrekazce();
+            prepocitejPozice();
+            jdiZaJerrymPoOseX();
+            jdiZaJerrymPoOseY();
+        }
+    }
 
+    private void vyhniSeOkraji() {
+        if ((tom.getX() > 999) || (tom.getX() < 1) || (tom.getY() > 599) || (tom.getY() < 1)) {
+            prepocitejPozice();
+            jdiZaJerrymPoOseX();
+            jdiZaJerrymPoOseY();
+        }
     }
 
 
