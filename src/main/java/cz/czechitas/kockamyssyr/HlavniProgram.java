@@ -66,6 +66,7 @@ public class HlavniProgram {
 
     private void obejdiPrekazku() {
         if (!(tom.isPossibleToMoveForward())) {
+            uKrajeSeRozhledni();
             vyhniSePrekazce();
             prepocitejPozice();
             jdiZaJerrymPoOseX();
@@ -97,15 +98,17 @@ public class HlavniProgram {
 
     private void vyhniSeZleva() {
         tom.turnLeft();
-        tom.moveForward(75);
+        tom.moveForward(100);
         tom.turnRight();
+        tom.moveForward(100);
 
     }
 
     private void vyhniSeZprava() {
         tom.turnRight();
-        tom.moveForward(75);
+        tom.moveForward(100);
         tom.turnLeft();
+        tom.moveForward(100);
 
 
     }
